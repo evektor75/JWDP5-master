@@ -104,4 +104,30 @@
   height: 100%;
 }
 
+.product-container {
+  width: 100%;
+  margin-top: 25px !important;
+  margin-bottom: 25px !important;
+}
+
+.product-card {
+  width: 80% !important;
+  height: 450px !important;
+}
+
+.card-text {
+  font-size: 0.85rem !important;
+}
+
+.btn-basket {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.dropdown button {
+  position: absolute;
+  bottom: -55px;
+}
+
 /*# sourceMappingURL=styles.css.map */

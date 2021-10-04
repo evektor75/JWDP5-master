@@ -67,7 +67,7 @@ function getFurnitures() {
         productInfoButton.classList.add("btn");
         productInfoButton.classList.add("furniture__infos__button");
         productInfoButton.innerHTML = "Ajouter au panier";
-        productLink.href = '#';
+        productLink.href = `product.html?id=${apiResults[article]._id}`;
 
 
 

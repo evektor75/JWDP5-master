@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--META-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--LINK-->
+		<!-- CSS only -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="./styles.css">
+		<!--SCRIPT-->
+		<!-- JavaScript Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="js/product.js"></script>	
+
+
+	<title>Orinoco</title>
+</head>
+<body>
+    <div class="full-container">
+        <!--HEADER-->
+        <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="index.html">
+                  <img src="./images/logo.png" alt="logo_Orinoco"  class="d-inline-block img-fluid me-4 logo align-middle"></a>
+              <button class="navbar-toggler border border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Accueil</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Mon Compte</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="#">
+                      Mon Panier
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    
+        </header>
+        </div>
+
+        <div class="product-container container">
+          <div class="card mx-auto product-card" style="width: 18rem;">
+            <img id="img" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text"></p>
+              <div class="dropdown">
+                <button id="button" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Couleur</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
+                  
+                </div>
+              </div>
+              <a href="#" class="btn btn-primary btn-basket">Ajouter au panier</a>
+            </div>
+          </div>
+
+        </div>
+
+
+</body>
+<!--FOOTER-->
+<footer class="bg-dark text-center text-black footer">
+    <div class="footer-container p-4 pb-0">
+      <section class="">
+        <form action="">
+          <div class="row d-flex justify-content-center">
+            <div class="col-auto">
+              <p class="pt-2">
+                <strong>S'abonner à notre newsletter</strong>
+              </p>
+            </div>
+  
+            <div class="col-md-5 col-12">
+              <div class="form-outline form-black mb-4">
+                <input type="email" id="form5Example2" class="form-control" placeholder="orinoco@orinoco.com" />
+                <label class="form-label" for="form5Example2" >Adresse email</label>
+              </div>
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-outline-dark mb-4">
+                S'abonner
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+    </div>
+  
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-black" href="#">Orinoco.com</a>
+    </div>
+  </footer>
+ 
