@@ -12,20 +12,96 @@
   height: 100%;
 }
 
-.title {
-  font-family: "Oswald";
-  font-size: 1.8rem;
-}
-
 /*BODY*/
 .box-body {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+.title {
+  font-family: "Oswald";
+  font-size: 2em;
+}
+
+.issue {
+  font-size: 2em;
+  font-family: "oswald";
+  line-height: 2em;
   margin-top: 5rem;
   margin-bottom: 5rem;
+}
+
+.row {
+  --bs-gutter-x: none;
+  --bs-gutter-y: none;
+}
+
+.furnitures-container {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.furnitures {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+
+.furniture {
+  margin-left: 15px;
+  margin-right: 15px;
+  width: 300px;
+  height: 400px;
+  border-radius: 15px !important;
+  margin-bottom: 15px !important;
+  padding: 0;
+  background-color: #f3e9f1;
+  border: 0.5px solid #B8B0B6;
+}
+.furniture__infos {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  color: black;
+}
+.furniture__infos__title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.furniture__infos__description {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 5px !important;
+}
+.furniture__infos__price {
+  position: absolute;
+  right: 15px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 35px !important;
+}
+.furniture__infos__button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border: 1px solid grey;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.furniture img {
+  width: 100%;
+  height: 40%;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 /*FOOTER*/
 .footer {
   background-color: #f3e9f1 !important;
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */

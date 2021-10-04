@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "Oswald";
+  src: url(./fonts/Oswald-Medium.ttf);
+}
+
+/*HEADER*/
+.navbar {
+  background-color: #f3e9f1 !important;
+}
+
+.logo {
+  width: 150px;
+  height: 100%;
+}
+
+.title {
+  font-family: "Oswald";
+  font-size: 1.8rem;
+}
+
+/*BODY*/
+.box-body {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+/*FOOTER*/
+.footer {
+  background-color: #f3e9f1 !important;
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=main.css.map */
