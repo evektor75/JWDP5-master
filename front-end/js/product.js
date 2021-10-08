@@ -1,12 +1,12 @@
+
+
+
 //recuperation de l'id dans l'URL
 let params = (new URL(document.location)).searchParams;
 let id = params.get('id');
 
-main();
+getFurniture();
 
-function main(){
-    getFurniture();
-}
 
 //Requete produit spécifique
 
@@ -29,14 +29,17 @@ function getFurniture(){
 
         let productCardDescription = document.querySelector(".card-text");
         productCardDescription.innerHTML = product.description; 
-
-        let colorPicker = document.querySelector("#button");
         
+        let colorPicker = document.querySelector(".dropdown");
+        let productCardButtonLabel = document.createElement("label");
+        let productCardButton = document.createElement("select");
+        colorPicker.appendChild(productCardButtonLabel);
+        colorPicker.appendChild(productCardButton);
+        productCardButtonLabel.innerHTML =" Choisissez votre couleur préférée : ";
+
         for (let i = 0; i < product.varnish.length; i++) {
-            let productCardColorPicker = document.createElement("div");
-            colorPicker.appendChild(productCardColorPicker);
-            productCardColorPicker.classList.add("dropdown-item");
-            productCardColorPicker.classList.add("disabled");
+            let productCardColorPicker = document.createElement("option");
+            productCardButton.appendChild(productCardColorPicker);
             productCardColorPicker.innerHTML = product.varnish[i];
             
         }
@@ -47,5 +50,4 @@ function getFurniture(){
 
 
 }
-
 

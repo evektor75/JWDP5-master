@@ -78,7 +78,7 @@
   right: 15px;
   font-weight: bold;
   font-size: 1.1rem;
-  margin-top: 35px !important;
+  margin-top: 25px !important;
 }
 .furniture__infos__button {
   position: absolute;
@@ -91,10 +91,18 @@
 
 .furniture img {
   width: 100%;
-  height: 40%;
+  height: 50%;
   object-fit: cover;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+}
+
+.add-cart i {
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #B8B0B6;
 }
 
 /*FOOTER*/
@@ -110,24 +118,117 @@
   margin-bottom: 25px !important;
 }
 
-.product-card {
-  width: 80% !important;
-  height: 450px !important;
+.dropdown:hover > #cart-dropdown {
+  display: block;
 }
 
+.product-card {
+  height: 450px;
+}
+
+@media all and (min-width: 350px) and (max-width: 90%) {
+  .product-card {
+    width: 375px !important;
+  }
+}
 .card-text {
   font-size: 0.85rem !important;
 }
 
 .btn-basket {
   position: absolute;
-  bottom: 15px;
-  right: 15px;
+  bottom: 10px;
+  right: 10px;
 }
 
-.dropdown button {
-  position: absolute;
-  bottom: -55px;
+.dropdown {
+  position: relative;
+  top: -10px;
+}
+
+.products-container {
+  max-width: 650px;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  padding-bottom: 100px;
+}
+
+.products-container i {
+  font-size: 25px;
+  color: blue;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.product-header {
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 2px solid black;
+  margin: 0 auto;
+}
+
+.product-title {
+  width: 45%;
+}
+
+.product-price {
+  width: 15%;
+  display: flex;
+  align-items: center;
+}
+
+.quantity {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.total {
+  width: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.product {
+  width: 45%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f3e9f1;
+}
+
+.products {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products img {
+  width: 75px;
+}
+
+.basketTotalContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.basketTotalTitle {
+  width: 30%;
+}
+
+.basketTotal {
+  width: 10%;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -7,6 +7,7 @@
     font-family: "Oswald";
     font-size: 2em;
 }
+
 .issue{
     font-size: 2em;
     font-family: "oswald";
@@ -60,7 +61,7 @@
             right: 15px;
             font-weight: bold;
             font-size: 1.1rem;
-            margin-top: 35px!important;
+            margin-top: 25px!important;
         }
         &__button{
             position: absolute;
@@ -78,13 +79,19 @@
 
 .furniture img {
     width: 100%;
-    height: 40%;
+    height: 50%;
     object-fit: cover;
     border-top-left-radius:15px ;
     border-top-right-radius: 15px;
 }
 
-
+.add-cart i {
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #B8B0B6;
+}
 
 /*FOOTER*/
 

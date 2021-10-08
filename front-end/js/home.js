@@ -1,8 +1,7 @@
-main();
 
-function main() {
-  getFurnitures();
-}
+
+getFurnitures();
+
 
 //Requete général API
 function getFurnitures() {
@@ -38,7 +37,6 @@ function getFurnitures() {
         let productLink = document.createElement("a");
         productCard.appendChild(productLink);
         productLink.href = `product.html?id=${apiResults[article]._id}`;
-        productLink.classList.add("stretched-link");
         productLink.classList.add("text-decoration-none");
         
         let productInfosDiv = document.createElement("div");
@@ -66,8 +64,8 @@ function getFurnitures() {
         productInfosDiv.appendChild(productInfoButton);
         productInfoButton.classList.add("btn");
         productInfoButton.classList.add("furniture__infos__button");
-        productInfoButton.innerHTML = "Ajouter au panier";
-        productLink.href = `product.html?id=${apiResults[article]._id}`;
+        productInfoButton.classList.add("add-cart");
+        productInfoButton.innerHTML = `Plus d'informations <i class="fas fa-info-circle"></i>`;
 
 
 
@@ -80,3 +78,4 @@ function getFurnitures() {
       }
     });
 }
+
