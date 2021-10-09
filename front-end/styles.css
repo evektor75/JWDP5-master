@@ -231,4 +231,13 @@
   width: 10%;
 }
 
+.card-price {
+  position: absolute;
+  bottom: 10px;
+  left: 25px;
+  width: 50px;
+  height: 30px;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=styles.css.map */

@@ -20,6 +20,7 @@ function getFurniture(){
 
     .then(function (apiResultsProduct){
         const product = apiResultsProduct;
+        let productCard = document.querySelector('.card-body');
        
         let productCardImg = document.querySelector("#img");
         productCardImg.src = product.imageUrl;
@@ -29,19 +30,27 @@ function getFurniture(){
 
         let productCardDescription = document.querySelector(".card-text");
         productCardDescription.innerHTML = product.description; 
+
+        let productcardPrice = document.createElement('div');
+        productCard.appendChild(productcardPrice);
+        productcardPrice.classList.add('card-price');
+        productcardPrice.innerHTML = product.price / 100 + " €";
+
+
         
         let colorPicker = document.querySelector(".dropdown");
         let productCardButtonLabel = document.createElement("label");
         let productCardButton = document.createElement("select");
+        productCardButton.setAttribute('id', 'selectColor')
         colorPicker.appendChild(productCardButtonLabel);
         colorPicker.appendChild(productCardButton);
         productCardButtonLabel.innerHTML =" Choisissez votre couleur préférée : ";
 
         for (let i = 0; i < product.varnish.length; i++) {
             let productCardColorPicker = document.createElement("option");
-            productCardButton.appendChild(productCardColorPicker);
-            productCardColorPicker.innerHTML = product.varnish[i];
-            
+            productCardColorPicker.value = i;
+            productCardColorPicker.text = product.varnish[i];
+            productCardButton.appendChild(productCardColorPicker); 
         }
         
 

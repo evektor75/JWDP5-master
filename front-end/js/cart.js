@@ -1,38 +1,7 @@
 //ADD TO CART
 let carts = document.querySelector('.add-cart');
 
-let products = [
-    {
-        name:'Cross table',
-        tag:'crossTable',
-        price:599,
-        inCart:0
-    },
-    {
-        name:'coffee Table',
-        tag:'coffeetable',
-        price:899,
-        inCart:0
-    },
-    {
-        name:'Dining Table',
-        tag:'diningTable',
-        price:1099,
-        inCart:0
-    },
-    {
-        name:'Bench',
-        tag:'bench',
-        price:399,
-        inCart:0
-    },
-    {
-        name:'Vintage Chair',
-        tag:'vintageChair',
-        price:799,
-        incart:0
-    },
-]
+
 /*{
   "varnish": [
     "Dark Oak",
@@ -47,6 +16,14 @@ let products = [
 }
 */
 
+function getColor(){
+    let e = document.getElementById("selectColor");
+    let color = e.value;
+    return color;
+}
+
+
+
 const searchParams = new URLSearchParams(location.search);
 const newId = searchParams.get("id");
 const newUrl = `http://localhost:3000/api/furniture/${newId}`;
@@ -54,8 +31,15 @@ const newUrl = `http://localhost:3000/api/furniture/${newId}`;
 
     fetch(newUrl)
     .then(response=> response.json().then( function (results){
-        const articleResults = results;
-        console.log(articleResults);
+    const articleResults = results;
+   
+    
+    carts.addEventListener('click',function() {
+    articleResults['color'] = getColor();
+    cartNumbers(articleResults);
+    totalCost(articleResults);   
+    
+});
     }) 
       
       )
@@ -65,10 +49,6 @@ const newUrl = `http://localhost:3000/api/furniture/${newId}`;
           "<div class='issue text-center fw-bold '> Impossible de trouver votre meubles préféré :( <br> Veuillez essayer ultérieurement.</div>";
       })
 
-  carts.addEventListener('click',function() {
-        cartNumbers(products);
-        totalCost(products);   
-    });
 
 
 //Mise en place localstorage
@@ -98,22 +78,23 @@ function cartNumbers(product) {
 
 }
 
+
 function setItems(product){
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
     if(cartItems != null)    {
-        if(cartItems[product.tag] == undefined){
+           if (cartItems == undefined){
             cartItems = {
                 ...cartItems,
-                [product.tag]: product
-            }
+                 product 
         }
-        cartItems[product.tag].inCart += 1;
+        }
+        cartItems[product.id].inCart += 1;
     }
     else{
         product.inCart = 1;
         cartItems = {
-            [product.tag]: product
+             product
         }
     }
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
