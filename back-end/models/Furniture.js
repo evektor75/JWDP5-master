@@ -10,7 +10,8 @@ const furnitures = [
     "name": "Cross Table",
     "price": 59900,
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "imageUrl": "oak_1.jpg"
+    "imageUrl": "oak_1.jpg",
+    "inCart": 0
   },
   {
     "varnish": [
@@ -21,7 +22,8 @@ const furnitures = [
     "name": "Coffee Table",
     "price": 89900,
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "imageUrl": "oak_2.jpg"
+    "imageUrl": "oak_2.jpg",
+    "inCart": 0
   },
   {
     "varnish": [
@@ -33,7 +35,8 @@ const furnitures = [
     "name": "Dining Table (extendable)",
     "price": 109900,
     "imageUrl": "oak_3.jpg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "inCart": 0
   },
   {
     "varnish": [
@@ -44,7 +47,8 @@ const furnitures = [
     "name": "Bench",
     "price": 39900,
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "imageUrl": "oak_4.jpg"
+    "imageUrl": "oak_4.jpg",
+    "inCart": 0
   },
   {
     "varnish": [
@@ -55,7 +59,8 @@ const furnitures = [
     "name": "Vintage Chair",
     "price": 79900,
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "imageUrl": "oak_5.jpg"
+    "imageUrl": "oak_5.jpg",
+    "inCart": 0
   }
 ]
 

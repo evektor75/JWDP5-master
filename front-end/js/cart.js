@@ -23,21 +23,23 @@ function getColor(){
 }
 
 
-
 const searchParams = new URLSearchParams(location.search);
 const newId = searchParams.get("id");
 const newUrl = `http://localhost:3000/api/furniture/${newId}`;
 
 
     fetch(newUrl)
-    .then(response=> response.json().then( function (results){
+    .then(response=> response.json()
+    .then( function (results){
     const articleResults = results;
    
     
     carts.addEventListener('click',function() {
     articleResults['color'] = getColor();
+    articleResults['inCart']= 0 ;
     cartNumbers(articleResults);
-    totalCost(articleResults);   
+    totalCost(articleResults);
+    
     
 });
     }) 
@@ -82,21 +84,17 @@ function cartNumbers(product) {
 function setItems(product){
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
-    if(cartItems != null)    {
-           if (cartItems == undefined){
-            cartItems = {
-                ...cartItems,
-                 product 
-        }
-        }
-        cartItems[product.id].inCart += 1;
+    if(cartItems != null){
+        console.log(product.inCart);
+        cartItems[product.inCart] += 1;
+       
     }
     else{
         product.inCart = 1;
         cartItems = {
              product
         }
-    }
+    }  
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
 
