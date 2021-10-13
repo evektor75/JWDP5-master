@@ -84,17 +84,25 @@ function cartNumbers(product) {
 function setItems(product){
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
+
     if(cartItems != null){
-        console.log(product.inCart);
-        cartItems[product.inCart] += 1;
-       
+        if(cartItems[product.color] == undefined){
+            cartItems= {
+                ...cartItems,
+                [product.color]: product
+            }
+
+        }
+        cartItems[product.color].inCart += 1;
+
     }
     else{
-        product.inCart = 1;
+        product.inCart= 1;
         cartItems = {
-             product
-        }
-    }  
+            [product.color]: product
+       }
+
+    }
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
 
@@ -105,10 +113,10 @@ function totalCost(product){
 
     if(cartCost != null) {
         cartCost = parseInt(cartCost);
-        localStorage.setItem("totalCost", cartCost + product.price);
+        localStorage.setItem("totalCost", cartCost + product.price / 100);
     }
     else{
-        localStorage.setItem("totalCost",product.price);
+        localStorage.setItem("totalCost",product.price / 100);
 }
     }
 
@@ -126,16 +134,16 @@ function displayCart(){
             productContainer.innerHTML += `
             <div class="product">
             <i class="fas fa-times-circle"></i>
-            <img src="./images/${item.tag}.jpg">
+            <img src="./images/${item.color}.jpg">
             <span>${item.name}</span>
             </div>
-            <div class="price">${item.price}</div>
+            <div class="price">${item.price / 100}</div>
             <div class="quantity">
             <i class="fas fa-minus"><span>${item.inCart}</span></i>
             <i class="fas fa-plus"></i>
             </div>
             <div class="total>
-                ${item.inCart * item.price} €
+                ${item.inCart /100 * item.price / 100} €
             </div>`;
         });
 
