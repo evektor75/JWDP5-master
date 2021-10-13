@@ -160,7 +160,7 @@
 
 .products-container i {
   font-size: 25px;
-  color: blue;
+  color: #B8B0B6;
   margin-left: 10px;
   margin-right: 10px;
   cursor: pointer;
@@ -189,16 +189,22 @@
   width: 30%;
   display: flex;
   align-items: center;
+  margin-left: auto;
+}
+
+.price {
+  margin-left: auto;
 }
 
 .total {
   width: 10%;
   display: flex;
   align-items: center;
+  margin-left: auto;
 }
 
 .product {
-  width: 45%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -238,6 +244,14 @@
   width: 50px;
   height: 30px;
   font-weight: bold;
+}
+
+.error {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2rem;
+  font-family: oswald;
+  margin-top: 15px;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -127,25 +127,27 @@ function displayCart(){
     let cartItems = localStorage.getItem("productsInCart");
     cartItems = JSON.parse(cartItems) /*Conversion en js*/
     let productContainer = document.querySelector(".products");
+    console.log(cartItems);
     let cartCost = localStorage.getItem("totalCost");
-    if(cartItems && productContainer) {
+    if(cartItems && productContainer ) {
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
-            productContainer.innerHTML += `
+            for (let i = 0; i < item.varnish.length; i++) {
+            productContainer.innerHTML = `
             <div class="product">
             <i class="fas fa-times-circle"></i>
-            <img src="./images/${item.color}.jpg">
-            <span>${item.name}</span>
-            </div>
-            <div class="price">${item.price / 100}</div>
+            <img src="${item.imageUrl}">
+            <span class="ml-auto">${item.name} ${item.varnish[i]} </span>
+            <div class="price">${item.price / 100}€</div>
             <div class="quantity">
-            <i class="fas fa-minus"><span>${item.inCart}</span></i>
+            <i class="fas fa-minus"></i><span>${item.inCart}</span>
             <i class="fas fa-plus"></i>
             </div>
-            <div class="total>
-                ${item.inCart /100 * item.price / 100} €
+            <div class="total">
+                ${(item.inCart) * (item.price / 100)} €
+            </div>
             </div>`;
-        });
+        }});
 
         productContainer.innerHTML += `
         <div class="basketTotalContainer">
@@ -153,29 +155,17 @@ function displayCart(){
                 Total Panier
             </h4>
             <h4 class="basketTotal">
-                €${cartCost}
+                ${cartCost}€
             </h4>
 
         </div>`
     }
-}   
+    else{
+        let error = document.querySelector(".products");
+        error.innerHTML = `<div class="error"> Votre Panier est Vide</div>` ;
+    }
+    
+}     
 
 onLoadCartNumbers();
 displayCart();
-
-/*const searchParams = new URLSearchParams(location.search);
-const newId = searchParams.get("id");
-const newUrl = `http://localhost:3000/api/furniture/${newId}`;
-
-
-    fetch(newUrl)
-    .then(response=> response.json().then( function (results){
-        const articleResults =results;
-    }) 
-      
-      )
-      .catch((err) => {
-        let productsContainer = document.querySelector(".products-container");
-        productsContainer.innerHTML =
-          "<div class='issue text-center fw-bold '> Impossible de trouver votre meubles préféré :( <br> Veuillez essayer ultérieurement.</div>";
-      })*/
