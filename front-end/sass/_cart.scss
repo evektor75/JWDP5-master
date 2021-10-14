@@ -16,6 +16,9 @@
     margin-right: 10px;
     cursor: pointer;
 }
+.products-form h2 {
+    text-align: center;
+}
 
 .product-header{
     width: 100%;
@@ -82,16 +85,18 @@
 
 .basketTotal{
     width: 10%;
+    position: relative;
+    left: -10px;
 }
 
 .card-price {
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
     left: 25px;
     width: 50px;
     height: 30px;
     font-weight: bold;
-
+    font-size: 15px;
 }
 
 .error {
@@ -101,4 +106,44 @@
     font-family: oswald;
     margin-top: 15px;
 }
+@media all and (max-width: 575px){
+.bloc-container{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
+.width-fix{
+    margin-right: 5px;
+}
+
+}
+
+
+@media all and (min-width: 575px){
+    .bloc-container{
+        display: flex;
+        flex-wrap: nowrap;
+        margin-top: 25px;
+        justify-content: space-evenly;
+        align-items: center;
+    
+    }
+
+
+}
+
+.bloc-button button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    display: flex;
+
+}
+
+.btn-color {
+    background-color: #B8B0B6;
+}

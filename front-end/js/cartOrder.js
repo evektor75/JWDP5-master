@@ -1,20 +1,22 @@
+
+
 function displayCart(){
     let cartItems = localStorage.getItem("productsInCart");
     cartItems = JSON.parse(cartItems) /*Conversion en js*/
     let productContainer = document.querySelector(".products");
-    console.log(cartItems);
     let cartCost = localStorage.getItem("totalCost");
+    let cartNumbers = localStorage.getItem('cartNumbers');
+
+    console.log(cartNumbers);
+    
     if(cartItems && productContainer ) {
+        productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
-           
-            for (let i = 0; i < item.varnish.length; i++) {
-            console.log(item.varnish.length);
-            productContainer.innerHTML = '';
-            productContainer.innerHTML = `
+            productContainer.innerHTML += `
             <div class="product">
             <i class="fas fa-times-circle"></i>
             <img src="${item.imageUrl}">
-            <span class="ml-auto">${item.name} ${item.varnish[i]} </span>
+            <span class="ml-auto">${item.name} ${item.varnish[item.color]} </span>
             <div class="price">${item.price / 100}€</div>
             <div class="quantity">
             <i class="fas fa-minus"></i><span>${item.inCart}</span>
@@ -24,7 +26,7 @@ function displayCart(){
                 ${(item.inCart) * (item.price / 100)} €
             </div>
             </div>`;
-        }})
+        })
 
         productContainer.innerHTML += `
         <div class="basketTotalContainer">
