@@ -1,3 +1,7 @@
+h1{
+    margin-bottom: 25px;
+}
+
 .products-container{
     max-width: 650px;
     justify-content: space-around;
@@ -74,6 +78,7 @@
 }
 
 .basketTotalContainer{
+    margin-top: 10px;
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -146,4 +151,18 @@
 
 .btn-color {
     background-color: #B8B0B6;
+}
+
+//confirmation formulaire
+
+.correct{
+    border: 2px solid green;
+}
+
+.invalid{
+    border: 2px solid red;
+}
+.inputNumber-text{
+    font-size: 12px;
+    color: red;
 }

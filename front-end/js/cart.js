@@ -123,3 +123,5 @@ function totalCost(product){
 
 
 onLoadCartNumbers();
+
+

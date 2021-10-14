@@ -1,4 +1,5 @@
 
+//affichage du panier
 
 function displayCart(){
     let cartItems = localStorage.getItem("productsInCart");
@@ -45,5 +46,14 @@ function displayCart(){
     }
     
 }   
-
 displayCart();
+
+//Retirer un element du panier
+
+let itemDelete = document.querySelector(".product + i");
+let cartItems = localStorage.getItem("productsInCart");
+
+itemDelete.addEventListener('click',function() {
+    //idee, aller chercher dans le local stroage la liste de produit et supprimer le produit concerné
+})
+
