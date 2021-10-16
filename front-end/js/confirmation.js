@@ -6,19 +6,41 @@ let myInput = document.querySelector("#inputNumber");
 let myZip = document.querySelector("#inputZip");
 
 function checkNumber(inputEvent){
-
 inputEvent.addEventListener('input', function(e) {
     let value = e.target.value;
-    if (value.match(/^[0-9]+$/) != null ) {
-        inputEvent.classList.add("correct");
+    let error =  e.target.parentElement.getElementsByClassName("inputNumber-text")[0];
 
+    if (value.match(/^[0-9]+$/) != null ) {
+        console.log("correct");
+        inputEvent.classList.remove("invalid");
+        error.innerHTML = '';
+        
     } else {
     inputEvent.classList.add("invalid");
-       let invalid =document.querySelector(".inputNumber-text");
-       invalid.innerHTML = `Veuillez saisir des chiffres`;
+     error.innerHTML = `Veuillez saisir des chiffres`;
     }
 });
 }
 
+let mySurname = document.querySelector("#inputSurname");
+let myName = document.querySelector("#inputName");
+
+function allLetter(inputtxt){
+    inputtxt.addEventListener('input', function(e) {
+        let value = e.target.value;
+        if (value.match(/^[A-Za-z]+$/) != null) {
+            console.log("correct");
+        }
+        else{
+            inputtxt.classList.add("invalid");
+            let invalid =document.querySelector(".input-text");
+            invalid.innerHTML = `Veuillez saisir des lettres`;
+        }
+    })}
+   
+  
+  
 checkNumber(myInput);
 checkNumber(myZip);
+allLetter(mySurname);
+allLetter(myName);

@@ -1,35 +1,42 @@
 
+//Cache
+function onLoadCartNumbers(){
+    let productNumbers = localStorage.getItem('cartNumbers');
+    if(productNumbers){
+        document.querySelector('.cart span').textContent = productNumbers;
+    }
+    }
+onLoadCartNumbers();
+
 //affichage du panier
 
 function displayCart(){
     let cartItems = localStorage.getItem("productsInCart");
     cartItems = JSON.parse(cartItems) /*Conversion en js*/
     let productContainer = document.querySelector(".products");
+    let productTotal = document.querySelector(".products-container");
     let cartCost = localStorage.getItem("totalCost");
-    let cartNumbers = localStorage.getItem('cartNumbers');
 
-    console.log(cartNumbers);
     
     if(cartItems && productContainer ) {
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
             productContainer.innerHTML += `
-            <div class="product">
-            <i class="fas fa-times-circle"></i>
-            <img src="${item.imageUrl}">
-            <span class="ml-auto">${item.name} ${item.varnish[item.color]} </span>
-            <div class="price">${item.price / 100}€</div>
-            <div class="quantity">
-            <i class="fas fa-minus"></i><span>${item.inCart}</span>
-            <i class="fas fa-plus"></i>
-            </div>
-            <div class="total">
-                ${(item.inCart) * (item.price / 100)} €
-            </div>
-            </div>`;
+            <tr>
+					<th scope="row" class="invisible disappear"><p>${item._id}</p></th>
+					<td> <i class="fas fa-times-circle delete"></i></td>
+                    <td><img src="${item.imageUrl}"></td>
+                    <td><p>${item.name}</p></td>
+                    <td><p>${item.varnish[item.color]}</p></td>
+					<td><p>${item.price / 100}€</p></td>
+                    <td><i class="fas fa-minus"></i><span>${item.inCart}</span>
+                    <i class="fas fa-plus"></i></td>
+                    <td><p>  ${(item.inCart) * (item.price / 100)} €</p></td>
+			</tr>
+            `;
         })
 
-        productContainer.innerHTML += `
+        productTotal.innerHTML += `
         <div class="basketTotalContainer">
             <h4 class="basketTotalTitle">
                 Total Panier
@@ -49,11 +56,19 @@ function displayCart(){
 displayCart();
 
 //Retirer un element du panier
-
-let itemDelete = document.querySelector(".product + i");
 let cartItems = localStorage.getItem("productsInCart");
+cartItems = JSON.parse(cartItems);
+Object.getOwnPropertyNames(cartItems);
+console.log(Object.getOwnPropertyNames(cartItems));
 
-itemDelete.addEventListener('click',function() {
-    //idee, aller chercher dans le local stroage la liste de produit et supprimer le produit concerné
+let item = document.querySelector(".delete");
+item.addEventListener('click', function() {
+        console.log(cartItems);
 })
+
+
+//Ajouter une quantité
+
+
+
 

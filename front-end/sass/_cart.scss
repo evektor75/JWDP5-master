@@ -1,81 +1,11 @@
 h1{
-    margin-bottom: 25px;
-}
-
-.products-container{
-    max-width: 650px;
-    justify-content: space-around;
-    margin: 0 auto;
     margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 50px;
-    padding-bottom: 100px;
-}
-.products-container i{
-    font-size: 25px;
-    color: #B8B0B6;
-    margin-left: 10px;
-    margin-right: 10px;
-    cursor: pointer;
-}
-.products-form h2 {
+    margin-bottom: 25px;
     text-align: center;
 }
 
-.product-header{
-    width: 100%;
-    max-width: 650px;
-    display: flex;
-    justify-content: flex-start;
-    border-bottom: 2px solid black;
-    margin: 0 auto;
-}
 
-.product-title{
-    width: 45%;
-}
 
-.product-price{
-    width: 15%;
-    display: flex;
-    align-items: center;
-}
-.quantity{
-    width: 30%;
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
-
-.price {
-    margin-left: auto ;
-}
-.total {
-    width: 10%;
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
-
-.product {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid $navbar-color;
-}
-.products{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.products img{
-    width: 75px;
-}
 
 .basketTotalContainer{
     margin-top: 10px;
@@ -111,6 +41,44 @@ h1{
     font-family: oswald;
     margin-top: 15px;
 }
+//Tableau
+
+td img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.disappear {
+    position: absolute;
+    left: -10000em;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+td i {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-top: 30px;
+    margin-left: 10px;
+    color: #B8B0B6;
+    
+}
+td p{
+    margin-top: 30px;
+    
+}
+
+td span {
+    margin-left: 10px;
+}
+
+//-----------
 @media all and (max-width: 575px){
 .bloc-container{
     display: flex;
@@ -141,7 +109,7 @@ h1{
 }
 
 .bloc-button button{
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 10px;
     margin-left: auto!important;
     margin-right: auto!important;
@@ -165,4 +133,9 @@ h1{
 .inputNumber-text{
     font-size: 12px;
     color: red;
+}
+
+.input-text{
+    font-size: 12px;
+    color: red; 
 }

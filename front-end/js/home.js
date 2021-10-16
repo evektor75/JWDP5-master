@@ -1,4 +1,11 @@
-
+//cache
+function onLoadCartNumbers(){
+  let productNumbers = localStorage.getItem('cartNumbers');
+  if(productNumbers){
+      document.querySelector('.cart span').textContent = productNumbers;
+  }
+  }
+onLoadCartNumbers();
 
 getFurnitures();
 
