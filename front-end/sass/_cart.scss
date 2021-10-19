@@ -67,6 +67,7 @@ td i {
     margin-top: 30px;
     margin-left: 10px;
     color: #B8B0B6;
+    cursor: pointer;
     
 }
 td p{
@@ -74,10 +75,8 @@ td p{
     
 }
 
-td input {
+td span {
     margin-left: 10px;
-    margin-top: 30px;
-    width: 30%;
 }
 
 button {
