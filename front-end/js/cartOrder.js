@@ -22,15 +22,14 @@ function displayCart(){
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
             productContainer.innerHTML += `
-            <tr>
+            <tr class='listener'>
 					<th scope="row" class="invisible disappear"><p>${item._id}</p></th>
-					<td> <i class="fas fa-times-circle delete"></i></td>
+					<td><button type="button" class="btn btn-danger">Retirer</button></td>
                     <td><img src="${item.imageUrl}"></td>
                     <td><p>${item.name}</p></td>
                     <td><p>${item.varnish[item.color]}</p></td>
-					<td><p>${item.price / 100}€</p></td>
-                    <td><i class="fas fa-minus"></i><span>${item.inCart}</span>
-                    <i class="fas fa-plus"></i></td>
+					<td class="price"><p>${item.price / 100}€</p></td>
+                    <td class="quantity"><input class"cart-quantity-input" type="number" value="${item.inCart}"></td>
                     <td><p>  ${(item.inCart) * (item.price / 100)} €</p></td>
 			</tr>
             `;
@@ -56,16 +55,34 @@ function displayCart(){
 displayCart();
 
 //Retirer un element du panier
-let cartItems = localStorage.getItem("productsInCart");
-cartItems = JSON.parse(cartItems);
-Object.getOwnPropertyNames(cartItems);
-console.log(Object.getOwnPropertyNames(cartItems));
+let cartItems = localStorage.getItem("productsInCart")
+cartItems = JSON.parse(cartItems)
+let removeCartItemButtons = document.getElementsByClassName('btn-danger')
+for (let i = 0; i < removeCartItemButtons.length; i++){
+    let button = removeCartItemButtons[i]
+    let removeLs = cartItems[i]
+    button.addEventListener('click', function(event){
+        let buttonClicked = event.target
+        buttonClicked.parentElement.parentElement.remove()
+       localStorage.removeItem(removeLs)
+    })
+}
 
-let item = document.querySelector(".delete");
-item.addEventListener('click', function() {
-        console.log(cartItems);
-})
-
+/*function updateCartTotal(){
+    let cartItemContainer = document.getElementsByClassName('products')[0]
+    let cartRows = cartItemContainer.getElementsByClassName('listener')
+    let total = 0
+    for (let i =0; i < cartRows.length; i++){
+        let cartRow = cartRows[i]
+        let priceElement = cartRow.getElementsByClassName('price')[0]
+        let quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        let price = parseFloat(priceElement.innerText.replace('€',''))
+        let quantity = quantityElement.value
+        total = total + (price * quantity)
+       
+    }
+    document.getElementsByClassName('basketTotal')[0]
+}*/
 
 //Ajouter une quantité
 

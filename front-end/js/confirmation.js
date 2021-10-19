@@ -28,13 +28,16 @@ let myName = document.querySelector("#inputName");
 function allLetter(inputtxt){
     inputtxt.addEventListener('input', function(e) {
         let value = e.target.value;
+        let error= e.target.parentElement.getElementsByClassName("input-text")[0];
+
         if (value.match(/^[A-Za-z]+$/) != null) {
             console.log("correct");
+            inputtxt.classList.remove("invalid");
+            error.innerHTML = ``;
         }
         else{
             inputtxt.classList.add("invalid");
-            let invalid =document.querySelector(".input-text");
-            invalid.innerHTML = `Veuillez saisir des lettres`;
+            error.innerHTML = `Veuillez saisir des lettres`;
         }
     })}
    
