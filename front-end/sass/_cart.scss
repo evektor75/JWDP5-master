@@ -35,8 +35,9 @@ h1{
 }
 
 .error {
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+    margin-top: 50px!important;
+    margin-bottom: 50px;
     font-size: 1.2rem;
     font-family: oswald;
     margin-top: 15px;
@@ -122,10 +123,15 @@ button {
 
 }
 
+
+//Formulaire
+.products-form h2 {
+    text-align: center;
+}
+
 .btn-color {
     background-color: #B8B0B6;
 }
-
 //confirmation formulaire
 
 .correct{

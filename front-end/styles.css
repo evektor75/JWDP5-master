@@ -181,8 +181,9 @@ h1 {
 }
 
 .error {
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
+  margin-top: 50px !important;
+  margin-bottom: 50px;
   font-size: 1.2rem;
   font-family: oswald;
   margin-top: 15px;
@@ -255,6 +256,10 @@ button {
   margin-left: auto !important;
   margin-right: auto !important;
   display: flex;
+}
+
+.products-form h2 {
+  text-align: center;
 }
 
 .btn-color {
