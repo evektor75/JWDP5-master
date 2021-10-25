@@ -17,6 +17,8 @@
 
 	<title>Orinoco</title>
 </head>
+
+
 <!--BODY-->
 <body>
 <div class="full-container">
@@ -66,6 +68,14 @@
 				  
 				</tbody>
 		</table>
+		<div class="basketTotalContainer">
+            <h4 class="basketTotalTitle">
+                Total Panier
+            </h4>
+            <h4 class="basketTotal">
+            </h4>
+
+        </div>
 		</div>
 	</div>
 	<div class="products-form mx-auto">
@@ -73,18 +83,22 @@
 		<form>
 			<div class="form-row">
 			<div class="form-group col-md-6 mx-auto">
-					<label for="inputSurname">Nom</label>
-					<input type="text" class="form-control" id="inputSurname" placeholder="Nom" required>
+					<label for="lastName">Nom</label>
+					<input type="text" class="form-control" id="lastName" placeholder="Nom" required>
 					<div class="input-text"></div>
 			</div>
 			<div class="form-group col-md-6 mx-auto">
-				<label for="inputName">Prénom</label>
-				<input type="text" class="form-control" id="inputName" placeholder="Prénom" required>
+				<label for="firstName">Prénom</label>
+				<input type="text" class="form-control" id="firstName" placeholder="Prénom" required>
 				<div class="input-text"></div>
 			</div>
 			<div class="form-group col-md-6 mx-auto">
 				<label for="inputEmail4">Email</label>
 				<input type="email" class="form-control" id="inputEmail4" placeholder="Email" required>
+			</div>
+			<div class="form-group col-md-6 mx-auto">
+				<label for="inputPhone">Téléphone</label>
+				<input type="number" class="form-control" id="inputPhone" placeholder="06 07 08 09 10">
 			</div>
 			<div class="form-group col-md-6 mx-auto">
 			  <label for="inputAddress">Nom de la voie</label>
@@ -93,7 +107,8 @@
 			  <div class="form-group col-md-6 mx-auto">
 				<label for="inputCity">Ville</label>
 				<input type="text" class="form-control" id="inputCity" placeholder="Paris" required>
-			  </div>
+				<div class="input-text"></div>
+			</div>
 			<div class="bloc-container">
 				<div class="form-group">
 				<label for="inputState">Pays</label>
@@ -111,9 +126,9 @@
 				</div>
 				</div>
 			</div>
-
+			<div class="error"></div>
 			<div class="bloc-button">
-			<button type="submit" class="btn btn-color">Envoyer</button>
+			<button type="submit" class="btn btn-color" id="button">Envoyer</button>
 			</div>
 		</form>
 	</div>

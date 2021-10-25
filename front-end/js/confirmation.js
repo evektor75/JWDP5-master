@@ -22,8 +22,9 @@ inputEvent.addEventListener('input', function(e) {
 });
 }
 
-let mySurname = document.querySelector("#inputSurname");
-let myName = document.querySelector("#inputName");
+let mySurname = document.querySelector("#lastName");
+let myName = document.querySelector("#firstName");
+let myCity = document.querySelector('#inputCity');
 
 function allLetter(inputtxt){
     inputtxt.addEventListener('input', function(e) {
@@ -47,3 +48,4 @@ checkNumber(myInput);
 checkNumber(myZip);
 allLetter(mySurname);
 allLetter(myName);
+allLetter(myCity);

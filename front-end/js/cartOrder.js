@@ -14,7 +14,6 @@ function displayCart(){
     let cartItems = localStorage.getItem("productsInCart")
     cartItems = JSON.parse(cartItems) /*Conversion en js*/
     let productContainer = document.querySelector(".products")
-    let productTotal = document.querySelector('.products-container')
     let cart = localStorage.getItem("totalCost")
     cart = parseInt(cart)
 
@@ -40,16 +39,8 @@ function displayCart(){
             `;
         })
 
-        productTotal.innerHTML += `
-        <div class="basketTotalContainer">
-            <h4 class="basketTotalTitle">
-                Total Panier
-            </h4>
-            <h4 class="basketTotal">
-                ${cart}€
-            </h4>
-
-        </div>`
+       let basketTotal = document.querySelector('.basketTotal')
+       basketTotal.innerHTML = `<span class="basket-price">${cart}</span>€ `
         deleteButtons();
         manageQuantity();
     }
@@ -195,6 +186,82 @@ function deleteButtons() {
         })
     }
 }
+
+//Listener
+
+let buttonSubmit = document.querySelector('#button');
+let inputName = document.getElementById('firstName');
+let inputLastName =  document.getElementById('lastName');
+let inputZip = document.getElementById('inputZip');
+let inputCity = document.getElementById('inputCity');
+let inputEmail = document.getElementById('inputEmail4');
+let inputAddress = document.getElementById('inputAddress');
+let inputPhone = document.getElementById('inputPhone');
+let error = document.querySelector('.error');
+let list = JSON.parse(localStorage.getItem("productsInCart"));
+
+buttonSubmit.addEventListener('click', function(e){
+    if(!inputName.value||
+        !inputLastName.value|| 
+        !inputZip.value||
+        !inputCity.value||
+        !inputAddress.value||
+        !inputEmail.value||
+        !inputPhone.value
+        ){
+            error.innerHTML = "Tous les champs ne sont pas remplis";
+            e.preventDefault();
+        }else if (isNaN(inputPhone.value)){
+            e.preventDefault();
+            error.innerText = "Votre numéro n'est pas valide";
+        } else {
+        let productsSelected =[];
+         productsSelected.push(list);
+        
+        let form ={
+            contact : {
+                firstName : inputName.value,
+                lastName :inputLastName.value,
+                email : inputEmail.value,
+                address : inputAddress.value,
+                city : inputCity.value
+                
+            },
+            products : productsSelected,
+        };
+
+
+     let options ={
+            
+            method: "POST", 
+            body: JSON.stringify(form),
+            headers: {'Content-Type': 'application/json'}
+        };
+    
+        let priceConfirmation = document.querySelector(".basket-price").innerText;
+
+        
+    
+    fetch("http://localhost:3000/api/furniture/order", options)
+    .then((response) => response.json())
+    .catch ((err) => {
+        alert("il y a eu une erreur:" + err);
+    })
+    .then((data) => {
+        //localStorage.clear();
+        console.log(data);
+        localStorage.setItem("orderId", data.orderId);
+        localStorage.setItem("total", priceConfirmation);
+        //window.open("./formulaire.html")
+    });
+   
+}
+})
+
+
+         
+
+
+
 onLoadCartNumbers();
 displayCart();
-
