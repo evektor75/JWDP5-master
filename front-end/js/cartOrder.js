@@ -205,8 +205,8 @@ buttonSubmit.addEventListener('click', function(e){
         !inputLastName.value|| 
         !inputZip.value||
         !inputCity.value||
-        !inputAddress.value||
         !inputEmail.value||
+        !inputAddress.value||
         !inputPhone.value
         ){
             error.innerHTML = "Tous les champs ne sont pas remplis";
@@ -215,7 +215,8 @@ buttonSubmit.addEventListener('click', function(e){
             e.preventDefault();
             error.innerText = "Votre numéro n'est pas valide";
         } else {
-        let productsSelected =[];
+        
+            let productsSelected =[];
          productsSelected.push(list);
         
         let form ={
@@ -244,16 +245,18 @@ buttonSubmit.addEventListener('click', function(e){
     
     fetch("http://localhost:3000/api/furniture/order", options)
     .then((response) => response.json())
-    .catch ((err) => {
-        alert("il y a eu une erreur:" + err);
-    })
     .then((data) => {
         //localStorage.clear();
         console.log(data);
         localStorage.setItem("orderId", data.orderId);
         localStorage.setItem("total", priceConfirmation);
+        document.location.href = "confirmation.html";
         //window.open("./formulaire.html")
+    })
+    .catch ((err) => {
+        alert("il y a eu une erreur:" + err);
     });
+   
    
 }
 })

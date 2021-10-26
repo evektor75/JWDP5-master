@@ -25,6 +25,7 @@ inputEvent.addEventListener('input', function(e) {
 let mySurname = document.querySelector("#lastName");
 let myName = document.querySelector("#firstName");
 let myCity = document.querySelector('#inputCity');
+let myCountry = document.querySelector('#inputState');
 
 function allLetter(inputtxt){
     inputtxt.addEventListener('input', function(e) {
@@ -49,3 +50,4 @@ checkNumber(myZip);
 allLetter(mySurname);
 allLetter(myName);
 allLetter(myCity);
+allLetter(myCountry);
