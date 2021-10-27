@@ -1,4 +1,7 @@
-//cache
+//Test chargement du script home.js
+console.log("running")
+
+//Cache
 function onLoadCartNumbers(){
   let productNumbers = localStorage.getItem('cartNumbers');
   if(productNumbers){
@@ -6,6 +9,8 @@ function onLoadCartNumbers(){
   }
   }
 onLoadCartNumbers();
+
+
 
 getFurnitures();
 
@@ -15,6 +20,7 @@ function getFurnitures() {
   fetch("http://localhost:3000/api/furniture")
     .then(function (response) {
       return response.json();
+      
     })
     .catch((err) => {
       let productsContainer = document.querySelector(".furnitures-container");
@@ -76,7 +82,7 @@ function getFurnitures() {
 
 
 
-        /* conversion prix en euros*/
+        /*conversion prix en euros*/
         apiResults[article].price = apiResults[article].price / 100;
         productInfoPrice.innerHTML = new Intl.NumberFormat("fr-FR", {
           style: "currency",

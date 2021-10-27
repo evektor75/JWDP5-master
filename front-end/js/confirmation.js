@@ -4,6 +4,7 @@
 
 let myInput = document.querySelector("#inputNumber");
 let myZip = document.querySelector("#inputZip");
+let myNumber = document.querySelector("#inputPhone");
 
 function checkNumber(inputEvent){
 inputEvent.addEventListener('input', function(e) {
@@ -47,6 +48,7 @@ function allLetter(inputtxt){
   
 checkNumber(myInput);
 checkNumber(myZip);
+checkNumber(myNumber);
 allLetter(mySurname);
 allLetter(myName);
 allLetter(myCity);

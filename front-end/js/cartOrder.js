@@ -187,9 +187,9 @@ function deleteButtons() {
     }
 }
 
+
 //Listener
 
-let buttonSubmit = document.querySelector('#button');
 let inputName = document.getElementById('firstName');
 let inputLastName =  document.getElementById('lastName');
 let inputZip = document.getElementById('inputZip');
@@ -198,9 +198,9 @@ let inputEmail = document.getElementById('inputEmail4');
 let inputAddress = document.getElementById('inputAddress');
 let inputPhone = document.getElementById('inputPhone');
 let error = document.querySelector('.error');
-let list = JSON.parse(localStorage.getItem("productsInCart"));
+let lists = JSON.parse(localStorage.getItem("productsInCart"));
 
-buttonSubmit.addEventListener('click', function(e){
+/*buttonSubmit.addEventListener('click', function(e){
     if(!inputName.value||
         !inputLastName.value|| 
         !inputZip.value||
@@ -223,10 +223,9 @@ buttonSubmit.addEventListener('click', function(e){
             contact : {
                 firstName : inputName.value,
                 lastName :inputLastName.value,
-                email : inputEmail.value,
                 address : inputAddress.value,
-                city : inputCity.value
-                
+                city : inputCity.value,
+                email : inputEmail.value                                 
             },
             products : productsSelected,
         };
@@ -249,8 +248,7 @@ buttonSubmit.addEventListener('click', function(e){
         //localStorage.clear();
         console.log(data);
         localStorage.setItem("orderId", data.orderId);
-        localStorage.setItem("total", priceConfirmation);
-        document.location.href = "confirmation.html";
+        //document.location.href = "formulaire.html";
         //window.open("./formulaire.html")
     })
     .catch ((err) => {
@@ -260,10 +258,75 @@ buttonSubmit.addEventListener('click', function(e){
    
 }
 })
+*/
+
+
+
+let buttonSubmit = document.querySelector('#button');
+buttonSubmit.addEventListener('click', function(e){
+    let cartTotal = localStorage.getItem('totalCost');
+    console.log(cartTotal);
+
+    let contact = {
+        firstName : inputName.value,
+        lastName : inputLastName.value,
+        address : inputAddress.value,
+        city : inputCity.value,
+        email : inputEmail.value 
+
+    }
+    console.log(contact);
+    getId(product);
+    function getId(product){
+        let products =[];
+        let cartItems = JSON.parse(localStorage.getItem('productsInCart'));
+        console.log(cartItems);
+        let productsId = cartItems[product]._id;
+        products.push((productsId));
+        console.log(products);
+    
+        let send = {
+            contact,
+            products
+        }
+        console.log(send);
+    }
+    
+   
+
+    let post = async function (data){
+        try {
+            let response = await fetch('http://localhost:3000/api/furniture/order',{
+                method: 'POST',
+                body : JSON.stringify(data),
+                headers : {
+                    'Content-Type':'application/json'
+                }
+            });
+            if(response.ok){
+                let data = await response.json();
+                console.log(data.orderId);
+                localStorage.setItem("orderId", data.orderId);
+                window.location = "formulaire.html";
+            }
+            else {
+                e.preventDefault();
+                console.error(`ERROR : ` + response.status);
+                alert('ERROR :'+ response.status);
+            }
+        } catch (error) {
+            alert("ERROR : " + error)
+        }
+    };
+    post(send);
+})
+
+
+
+
 
 
          
-
 
 
 onLoadCartNumbers();
