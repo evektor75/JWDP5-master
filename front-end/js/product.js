@@ -24,7 +24,6 @@ function getFurniture(){
 
     .then(function (apiResultsProduct){
         const product = apiResultsProduct;
-        console.log(product);
 
         let productCard = document.querySelector('.card-body');
        
@@ -83,12 +82,12 @@ let carts = document.querySelector('.add-cart');
 }
 */
 
+//Détermination de la couleur choisie par l'utilisateur
 function getColor(){
     let e = document.getElementById("selectColor");
     let color = e.value;
     return color;
 }
-
 
 const searchParams = new URLSearchParams(location.search);
 const newId = searchParams.get("id");
@@ -97,7 +96,8 @@ const newUrl = `http://localhost:3000/api/furniture/${newId}`;
 
     fetch(newUrl)
     .then(response=> response.json()
-    .then( function (results){
+    .then( 
+    function (results){
     const articleResults = results;
    
     
@@ -120,16 +120,16 @@ const newUrl = `http://localhost:3000/api/furniture/${newId}`;
 
 
 
-//Mise en place localstorage
-    /*Fonction permettant la mise en cache*/
+//Ajout Panier
+
     function onLoadCartNumbers(){
     let productNumbers = localStorage.getItem('cartNumbers');
     if(productNumbers){
         document.querySelector('.cart span').textContent = productNumbers;
     }
     }
-    
-    /*----*/
+
+    //Ajout du nombre de produits
 
 function cartNumbers(product) {
     let productNumbers = localStorage.getItem('cartNumbers');
@@ -147,7 +147,7 @@ function cartNumbers(product) {
 
 }
 
-
+    //Ajout des noms des produits
 function setItems(product){
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
@@ -173,7 +173,7 @@ function setItems(product){
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
 
-//Fonction calcul coût total
+    //Fonction calcul coût total
 function totalCost(product){
     let cartCost = localStorage.getItem("totalCost");
     

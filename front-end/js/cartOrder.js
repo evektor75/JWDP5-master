@@ -12,13 +12,13 @@ onLoadCartNumbers();
 
 function displayCart(){
     let cartItems = localStorage.getItem("productsInCart")
+    let cartNumbers = localStorage.getItem("cartNumbers");
     cartItems = JSON.parse(cartItems) /*Conversion en js*/
     let productContainer = document.querySelector(".products")
     let cart = localStorage.getItem("totalCost")
     cart = parseInt(cart)
 
-    
-    if(cartItems && productContainer ) {
+    if(cartNumbers != 0) {
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
             productContainer.innerHTML += `
@@ -47,7 +47,7 @@ function displayCart(){
     
     else{
        let error = document.querySelector(".products-container")
-       console.log(error);
+       console.log("error");
        error.innerHTML = `<div class="error"> 
                             Votre Panier est Vide <i class="far fa-sad-cry"></i>
                              </div>` ;
@@ -121,7 +121,10 @@ function totalCost(product, action ){
         localStorage.setItem("totalCost",product.price / 100);
 }
     }
-//
+
+
+//Gerer l'ajout et le retrait d'une quantité 
+
 function manageQuantity(){
     let decreaseButtons = document.querySelectorAll('.decrease')
     let increaseButtons = document.querySelectorAll('.increase')
@@ -132,12 +135,12 @@ function manageQuantity(){
 
     for(let i = 0; i < increaseButtons.length ; i++){
         decreaseButtons[i].addEventListener('click', () => {
-            console.log(cartItems);
             currentQuantity = decreaseButtons[i].parentElement.querySelector('span').textContent
             console.log(currentQuantity)
             currentProduct = decreaseButtons[i].parentElement.parentElement.getAttribute('id')
             console.log(currentProduct)
-
+        
+        //Ajout d'une condition: lorsqu'il y a plus d'un produit spécifique dans le local storage
         if(cartItems[currentProduct].inCart > 1){
             cartItems[currentProduct].inCart -= 1 
             cartNumbers(cartItems[currentProduct], "decrease")
@@ -162,6 +165,9 @@ function manageQuantity(){
     }
 }
 
+
+//Gerer le bouton pour supprimer une ligne
+
 function deleteButtons() {
     let deleteButtons = document.querySelectorAll('.button');
     let productNumbers = localStorage.getItem('cartNumbers');
@@ -169,7 +175,6 @@ function deleteButtons() {
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
     let productName;
-    console.log(cartItems);
 
     for(let i=0; i < deleteButtons.length; i++) {
         deleteButtons[i].addEventListener('click', () => {
@@ -187,6 +192,61 @@ function deleteButtons() {
     }
 }
 
+//confirmation formulaire
+
+        //Vérification que l'input contienne des chiffres
+        let myInput = document.querySelector("#inputNumber");
+        let myZip = document.querySelector("#inputZip");
+        let myNumber = document.querySelector("#inputPhone");
+
+        function checkNumber(inputEvent){
+        inputEvent.addEventListener('input', function(e) {
+            let value = e.target.value;
+            let error =  e.target.parentElement.getElementsByClassName("inputNumber-text")[0];
+
+            if (value.match(/^[0-9]+$/) != null ) {
+                console.log("correct");
+                inputEvent.classList.remove("invalid");
+                error.innerHTML = '';
+                
+            } else {
+            inputEvent.classList.add("invalid");
+            error.innerHTML = `Veuillez saisir des chiffres`;
+            }
+        });
+        }
+
+        //vérification que l'input contienne des lettres
+        let mySurname = document.querySelector("#lastName");
+        let myName = document.querySelector("#firstName");
+        let myCity = document.querySelector('#inputCity');
+        let myCountry = document.querySelector('#inputState');
+
+        function allLetter(inputtxt){
+            inputtxt.addEventListener('input', function(e) {
+                let value = e.target.value;
+                let error= e.target.parentElement.getElementsByClassName("input-text")[0];
+
+                if (value.match(/^[A-Za-z]+$/) != null) {
+                    console.log("correct");
+                    inputtxt.classList.remove("invalid");
+                    error.innerHTML = ``;
+                }
+                else{
+                    inputtxt.classList.add("invalid");
+                    error.innerHTML = `Veuillez saisir des lettres`;
+                }
+            })}
+   
+  
+  
+checkNumber(myInput);
+checkNumber(myZip);
+checkNumber(myNumber);
+allLetter(mySurname);
+allLetter(myName);
+allLetter(myCity);
+allLetter(myCountry);
 
 //Listener
 
