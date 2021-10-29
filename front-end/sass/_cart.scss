@@ -85,34 +85,7 @@ button {
 }
 
 //-----------
-@media all and (max-width: 575px){
-.bloc-container{
-    display: flex;
-    flex-wrap: nowrap;
-    margin-top: 20px;
-    justify-content: space-evenly;
-    align-items: center;
-}
 
-.width-fix{
-    margin-right: 5px;
-}
-
-}
-
-
-@media all and (min-width: 575px){
-    .bloc-container{
-        display: flex;
-        flex-wrap: nowrap;
-        margin-top: 25px;
-        justify-content: space-evenly;
-        align-items: center;
-    
-    }
-
-
-}
 
 .bloc-button button{
     margin-top: 25px;

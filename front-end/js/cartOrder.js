@@ -195,7 +195,6 @@ function deleteButtons() {
 //confirmation formulaire
 
         //Vérification que l'input contienne des chiffres
-        let myInput = document.querySelector("#inputNumber");
         let myZip = document.querySelector("#inputZip");
         let myNumber = document.querySelector("#inputPhone");
 
@@ -240,7 +239,6 @@ function deleteButtons() {
    
   
   
-checkNumber(myInput);
 checkNumber(myZip);
 checkNumber(myNumber);
 allLetter(mySurname);
@@ -336,21 +334,21 @@ buttonSubmit.addEventListener('click', function(e){
 
     }
     console.log(contact);
-    getId(product);
-    function getId(product){
-        let products =[];
-        let cartItems = JSON.parse(localStorage.getItem('productsInCart'));
-        console.log(cartItems);
-        let productsId = cartItems[product]._id;
-        products.push((productsId));
-        console.log(products);
+       
+    let products =[];
+    let cartItems = JSON.parse(localStorage.getItem('productsInCart'));
+    for (const item in cartItems) { 
+        products.push(cartItems[item]._id);
+        console.log(item);
+      }
+      
+    console.log(products);
     
         let send = {
             contact,
             products
         }
         console.log(send);
-    }
     
    
 
@@ -368,6 +366,7 @@ buttonSubmit.addEventListener('click', function(e){
                 console.log(data.orderId);
                 localStorage.setItem("orderId", data.orderId);
                 window.location = "formulaire.html";
+                 
             }
             else {
                 e.preventDefault();
