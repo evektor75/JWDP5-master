@@ -50,13 +50,30 @@ function displayCart(){
 }  
 displayCart();
 //Numero de commande
-let confirmationMessage = document.querySelector('.bloc-container_title')
-let confirmatioNumber = document.querySelector('.bloc-container_order')
-let cartItems = localStorage.getItem("productsInCart")
-let cartNumbers = localStorage.getItem("cartNumbers")
+let confirmationMessage = document.querySelector('.bloc-container_title');
+let confirmationNumber = document.querySelector('.bloc-container_order');
+let orderMessage = document.querySelector('.bloc-container__message');
+let cartItems = localStorage.getItem("productsInCart");
+let cartNumbers = localStorage.getItem("cartNumbers");
+    let id = localStorage.getItem('orderId');
+    let contact = JSON.parse(localStorage.getItem('contact'));
+    let prenom = contact.firstName;
+    let nom = contact.lastName;
+    let address = contact.address;
+    let city = contact.city;
+    let mail = contact.email;
 
-if(cartNumbers =! 0){
-    confirmationMessage.innerHTML = "Merci pour votre Achat"
+    if(cartNumbers =! 0){
+        confirmationMessage.innerHTML = `Merci <span class="bloc-container_title_name"> ${prenom} ${nom} </span> pour votre Achat`;
+        confirmationNumber.innerHTML = `Numéro de commande :</br> </br>
+        <span class='bloc-container_order_id'> ${id} </span>`;
+        orderMessage.innerHTML = `<div class="bloc-container__message__address"> Votre commande vous sera livré au <span class="bloc-container__message__address__form">${address} ${city}</span></div>
+        <div class"bloc-container__message__mail"> Une confirmation vous sera envoyé à <span class='bloc-container__message__mail__form'>${mail}</span></div>`;
 
-}
+    
+    }
+    
+
+
+
 

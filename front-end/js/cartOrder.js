@@ -334,6 +334,7 @@ buttonSubmit.addEventListener('click', function(e){
 
     }
     console.log(contact);
+    localStorage.setItem("contact", JSON.stringify(contact));
        
     let products =[];
     let cartItems = JSON.parse(localStorage.getItem('productsInCart'));
