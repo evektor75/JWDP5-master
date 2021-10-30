@@ -27,8 +27,13 @@ function getFurniture(){
 
         let productCard = document.querySelector('.card-body');
        
-        let productCardImg = document.querySelector("#img");
-        productCardImg.src = product.imageUrl;
+        let productImg = document.createElement("img");
+        let productsCard = document.querySelector('.card-body');
+        let parentDiv = productsCard.parentNode;
+        parentDiv.insertBefore(productImg, productsCard);
+        productImg.classList.add('card-img-top');
+        productImg.src = product.imageUrl;
+        
 
         let productCardTitle = document.querySelector(".card-title");
         productCardTitle.innerHTML = product.name;
