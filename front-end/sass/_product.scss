@@ -1,7 +1,9 @@
 .product-container{
-    width: 100%;
-    margin-top: 25px!important;
-    margin-bottom: 25px!important;
+    width: 375px!important;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 50px!important;
+    margin-bottom: 50px!important;
 }
 
 .dropdown:hover > #cart-dropdown{
@@ -9,8 +11,9 @@
 }
 .product-card{
     height: 450px;
+    width: 80%;
 }
-@media all and (min-width:350px ){
+@media all and (min-width:350px){
 
 .product-card{
     width: 375px!important;
@@ -28,4 +31,8 @@
 .dropdown {
     position: relative;
     top: -10px;
+}
+
+#selectColor {
+    margin-left: 5px;
 }
