@@ -6,6 +6,10 @@
     margin-bottom: 50px!important;
 }
 
+.product-card img {
+    object-fit: cover;
+    height: 245px;
+}
 .dropdown:hover > #cart-dropdown{
     display: block;
 }
@@ -33,6 +37,6 @@
     top: -10px;
 }
 
-#selectColor {
-    margin-left: 5px;
+#selectColor{
+    margin-left: 2px;
 }

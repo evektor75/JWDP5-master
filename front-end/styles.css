@@ -124,6 +124,11 @@ html {
   margin-bottom: 50px !important;
 }
 
+.product-card img {
+  object-fit: cover;
+  height: 245px;
+}
+
 .dropdown:hover > #cart-dropdown {
   display: block;
 }
@@ -154,7 +159,7 @@ html {
 }
 
 #selectColor {
-  margin-left: 5px;
+  margin-left: 2px;
 }
 
 h1 {
@@ -189,7 +194,7 @@ h1 {
 
 .card-price {
   position: absolute;
-  bottom: 15px;
+  bottom: 5px;
   left: 25px;
   width: 50px;
   height: 30px;
