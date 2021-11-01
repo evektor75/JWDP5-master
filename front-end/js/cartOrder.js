@@ -226,7 +226,7 @@ function deleteButtons() {
                 let value = e.target.value;
                 let error= e.target.parentElement.getElementsByClassName("input-text")[0];
 
-                if (value.match(/^[A-Za-z]+$/) != null) {
+                if (value.match(/^[A-Za-z\-]+$/) != null) {
                     console.log("correct");
                     inputtxt.classList.remove("invalid");
                     error.innerHTML = ``;
