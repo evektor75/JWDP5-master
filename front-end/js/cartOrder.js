@@ -25,7 +25,7 @@ function displayCart(){
             <tr class='listener' id="${item.color}${item.name}">
 					<th scope="row" class="invisible disappear"><p>${item._id}</p></th>
 					<td><i class="fas fa-trash-alt button"></i></td>
-                    <td><img src="${item.imageUrl}"></td>
+                    <td class="supp"><img src="${item.imageUrl}"></td>
                     <td><p>${item.name}</p></td>
                     <td><p class="select">${item.varnish[item.color]}</p></td>
 					<td class="price"><p>${item.price / 100}€</p></td>
@@ -40,7 +40,7 @@ function displayCart(){
         })
 
        let basketTotal = document.querySelector('.basketTotal')
-       basketTotal.innerHTML = `<span class="basket-price">${cart}</span>€ `
+       basketTotal.innerHTML = `<span class="basket-price"> ${cart}</span>€ `
         deleteButtons();
         manageQuantity();
     }
@@ -246,7 +246,7 @@ allLetter(myName);
 allLetter(myCity);
 allLetter(myCountry);
 
-//Listener
+//Listener et envoi à l'api
 
 let inputName = document.getElementById('firstName');
 let inputLastName =  document.getElementById('lastName');
@@ -257,66 +257,6 @@ let inputAddress = document.getElementById('inputAddress');
 let inputPhone = document.getElementById('inputPhone');
 let error = document.querySelector('.error');
 let lists = JSON.parse(localStorage.getItem("productsInCart"));
-
-/*buttonSubmit.addEventListener('click', function(e){
-    if(!inputName.value||
-        !inputLastName.value|| 
-        !inputZip.value||
-        !inputCity.value||
-        !inputEmail.value||
-        !inputAddress.value||
-        !inputPhone.value
-        ){
-            error.innerHTML = "Tous les champs ne sont pas remplis";
-            e.preventDefault();
-        }else if (isNaN(inputPhone.value)){
-            e.preventDefault();
-            error.innerText = "Votre numéro n'est pas valide";
-        } else {
-        
-            let productsSelected =[];
-         productsSelected.push(list);
-        
-        let form ={
-            contact : {
-                firstName : inputName.value,
-                lastName :inputLastName.value,
-                address : inputAddress.value,
-                city : inputCity.value,
-                email : inputEmail.value                                 
-            },
-            products : productsSelected,
-        };
-
-
-     let options ={
-            
-            method: "POST", 
-            body: JSON.stringify(form),
-            headers: {'Content-Type': 'application/json'}
-        };
-    
-        let priceConfirmation = document.querySelector(".basket-price").innerText;
-
-        
-    
-    fetch("http://localhost:3000/api/furniture/order", options)
-    .then((response) => response.json())
-    .then((data) => {
-        //localStorage.clear();
-        console.log(data);
-        localStorage.setItem("orderId", data.orderId);
-        //document.location.href = "formulaire.html";
-        //window.open("./formulaire.html")
-    })
-    .catch ((err) => {
-        alert("il y a eu une erreur:" + err);
-    });
-   
-   
-}
-})
-*/
 
 
 

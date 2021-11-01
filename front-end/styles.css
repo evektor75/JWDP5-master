@@ -126,7 +126,7 @@
   height: 450px;
 }
 
-@media all and (min-width: 350px){
+@media all and (min-width: 350px) {
   .product-card {
     width: 375px !important;
   }
@@ -169,7 +169,7 @@ h1 {
   width: 10%;
   position: relative;
   left: -10px;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 .card-title {
@@ -234,6 +234,15 @@ button {
   margin-top: 30px;
 }
 
+@media all and (max-width: 500px) {
+  tr {
+    font-size: 0.8em;
+  }
+
+  .supp {
+    display: none;
+  }
+}
 .bloc-button button {
   margin-top: 25px;
   margin-bottom: 10px;

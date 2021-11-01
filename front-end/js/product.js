@@ -6,6 +6,7 @@
 //recuperation de l'id dans l'URL
 let params = (new URL(document.location)).searchParams;
 let id = params.get('id');
+console.log(id);
 
 
 getFurniture();
@@ -54,7 +55,7 @@ function getFurniture(){
         productCardButton.setAttribute('id', 'selectColor')
         colorPicker.appendChild(productCardButtonLabel);
         colorPicker.appendChild(productCardButton);
-        productCardButtonLabel.innerHTML =" Choisissez votre couleur préférée : ";
+        productCardButtonLabel.innerHTML =" Choisissez votre couleur préférée :";
 
         for (let i = 0; i < product.varnish.length; i++) {
             let productCardColorPicker = document.createElement("option");

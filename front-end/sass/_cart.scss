@@ -23,7 +23,7 @@ h1{
     width: 10%;
     position: relative;
     left: -10px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 .card-title{
     font-family: Oswald, sans-serif;
@@ -86,6 +86,16 @@ td span {
 
 button {
     margin-top: 30px;
+}
+
+
+@media all and (max-width : 500px){
+    tr{
+        font-size: 0.8em;
+    }
+    .supp {
+        display: none;
+    }
 }
 
 //-----------

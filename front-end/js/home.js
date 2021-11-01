@@ -19,10 +19,11 @@ getFurnitures();
 function getFurnitures() {
   fetch("http://localhost:3000/api/furniture")
     .then(function (response) {
-      return response.json();
+      return response.json();  
       
     })
     .catch((err) => {
+      console.log(err);
       let productsContainer = document.querySelector(".furnitures-container");
       productsContainer.innerHTML =
         "<div class='issue text-center fw-bold '> Impossible de trouver vos meubles préférés :( <br> Veuillez essayer ultérieurement.</div>";
