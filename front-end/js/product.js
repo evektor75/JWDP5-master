@@ -74,19 +74,6 @@ function getFurniture(){
 let carts = document.querySelector('.add-cart');
 
 
-/*{
-  "varnish": [
-    "Dark Oak",
-    "Teak",
-    "Mahogany"
-  ],
-  "_id": "5beaae361c9d440000a57d99",
-  "name": "Dining Table (extendable)",
-  "price": 109900,
-  "imageUrl": "http://localhost:3000/images/oak_3.jpg",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-}
-*/
 
 //Détermination de la couleur choisie par l'utilisateur
 function getColor(){
@@ -95,9 +82,8 @@ function getColor(){
     return color;
 }
 
-const searchParams = new URLSearchParams(location.search);
-const newId = searchParams.get("id");
-const newUrl = `http://localhost:3000/api/furniture/${newId}`;
+
+const newUrl = `http://localhost:3000/api/furniture/${id}`;
 
 
     fetch(newUrl)

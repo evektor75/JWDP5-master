@@ -71,7 +71,7 @@ function displayForm(){
             <span class='bloc-container_order_id'> ${id} </span>`;
             orderMessage.innerHTML = `<div class="bloc-container__message__address"> Votre commande vous sera livré au <span class="bloc-container__message__address__form">${address} ${city}</span></div>
             <div class"bloc-container__message__mail"> Une confirmation vous sera envoyé à <span class='bloc-container__message__mail__form'>${mail}</span></div>`;
-    
+            localStorage.clear();
         
         }
 }
