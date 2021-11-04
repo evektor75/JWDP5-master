@@ -21,7 +21,7 @@ function getFurniture(){
     })
     .catch((err) => {console.log(err);
     let requestError = document.querySelector('.product-container');
-    requestError.innerHTML = 'Oups'+ err})
+    requestError.innerHTML = 'Oups '+ err})
 
     .then(function (apiResultsProduct){
         const product = apiResultsProduct;

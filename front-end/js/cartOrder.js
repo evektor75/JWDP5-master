@@ -292,40 +292,36 @@ buttonSubmit.addEventListener('click', function(e){
         console.log(send);
     
    
-
-   
-        try {
-            fetch('http://localhost:3000/api/furniture/order',{
-                method: 'POST',
-                body : JSON.stringify(send),
-                headers : {
-                    'Content-Type':'application/json'
-                }
-                
-            })
-            .then(response => response.json())
-            .then(response => {
-                if(response){
-                    let data = response;
-                    console.log(data.orderId);
-                    localStorage.setItem("orderId", data.orderId);
-                    window.location = "formulaire.html";
-                     
-                }
-                else {
-                    e.preventDefault();
-                    console.error(`ERROR : ` + response.status);
-                    alert('ERROR :'+ response.status);
-                }
-            });
-            
-        } 
-        catch (error) {
-            alert("ERROR : " + error);
-        }
-    
-    });
-
+function sendData(){
+    fetch('http://localhost:3000/api/furniture/order',{
+        method: 'POST',
+        body : JSON.stringify(send),
+        headers : {
+            'Content-Type':'application/json'
+        }})
+        .then(response => response.json())
+        .then(response => {
+            if(response){
+                let data = response;
+                console.log(data.orderId);
+                localStorage.setItem("orderId", data.orderId);
+                window.location = "formulaire.html";
+                 
+            }
+            else {
+                e.preventDefault();
+                console.error(`ERROR : ` + response.status);
+                alert('ERROR :'+ response.status);
+            }
+        })
+        .catch(err => {
+            alert("ERROR : " + err);
+        });
+}
+sendData();    
+})
+        
+       
 
 
 
