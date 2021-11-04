@@ -18,7 +18,7 @@ function displayCart(){
     let cart = localStorage.getItem("totalCost")
     cart = parseInt(cart)
 
-    if(cartNumbers != 0) {
+    if(cartNumbers && cartNumbers != 0) {
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
             productContainer.innerHTML += `
@@ -293,33 +293,38 @@ buttonSubmit.addEventListener('click', function(e){
     
    
 
-    let post = async function (data){
+   
         try {
-            let response = await fetch('http://localhost:3000/api/furniture/order',{
+            fetch('http://localhost:3000/api/furniture/order',{
                 method: 'POST',
-                body : JSON.stringify(data),
+                body : JSON.stringify(send),
                 headers : {
                     'Content-Type':'application/json'
                 }
+                
+            })
+            .then(response => response.json())
+            .then(response => {
+                if(response){
+                    let data = response;
+                    console.log(data.orderId);
+                    localStorage.setItem("orderId", data.orderId);
+                    window.location = "formulaire.html";
+                     
+                }
+                else {
+                    e.preventDefault();
+                    console.error(`ERROR : ` + response.status);
+                    alert('ERROR :'+ response.status);
+                }
             });
-            if(response.ok){
-                let data = await response.json();
-                console.log(data.orderId);
-                localStorage.setItem("orderId", data.orderId);
-                window.location = "formulaire.html";
-                 
-            }
-            else {
-                e.preventDefault();
-                console.error(`ERROR : ` + response.status);
-                alert('ERROR :'+ response.status);
-            }
-        } catch (error) {
-            alert("ERROR : " + error)
+            
+        } 
+        catch (error) {
+            alert("ERROR : " + error);
         }
-    };
-    post(send);
-})
+    
+    });
 
 
 
