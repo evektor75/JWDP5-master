@@ -116,6 +116,11 @@ html {
   height: 100%;
 }
 
+.rectif {
+  position: relative;
+  top: -29px;
+}
+
 .product-container {
   width: 375px !important;
   padding-left: 0;
