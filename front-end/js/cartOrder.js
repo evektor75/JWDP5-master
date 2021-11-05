@@ -236,8 +236,31 @@ function deleteButtons() {
                     error.innerHTML = `Veuillez saisir des lettres`;
                 }
             })}
+
+
+        //Validation email
+
+        let myEmail = document.querySelector('#inputEmail4');
+
+        function validMail(inputmail){
+           inputmail.addEventListener('input', function(e) {
+                let value = e.target.value;
+                let error= e.target.parentElement.getElementsByClassName("input-text")[0];
+
+                if (value.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) != null) {
+                    console.log("correct");
+                    inputmail.classList.remove("invalid");
+                    error.innerHTML = ``;
+                }
+                else{
+                    inputmail.classList.add("invalid");
+                    error.innerHTML = `Veuillez saisir une adresse mail valable`;
+                }
+            })}
+            
+        
    
-  
+        
   
 checkNumber(myZip);
 checkNumber(myNumber);
@@ -245,6 +268,9 @@ allLetter(mySurname);
 allLetter(myName);
 allLetter(myCity);
 allLetter(myCountry);
+validMail(myEmail);
+
+
 
 //Listener et envoi à l'api
 
@@ -262,64 +288,69 @@ let lists = JSON.parse(localStorage.getItem("productsInCart"));
 
 let buttonSubmit = document.querySelector('#button');
 buttonSubmit.addEventListener('click', function(e){
-    let cartTotal = localStorage.getItem('totalCost');
-    console.log(cartTotal);
 
-    let contact = {
-        firstName : inputName.value,
-        lastName : inputLastName.value,
-        address : inputAddress.value,
-        city : inputCity.value,
-        email : inputEmail.value 
-
-    }
-    console.log(contact);
-    localStorage.setItem("contact", JSON.stringify(contact));
-       
-    let products =[];
-    let cartItems = JSON.parse(localStorage.getItem('productsInCart'));
-    for (const item in cartItems) { 
-        products.push(cartItems[item]._id);
-        console.log(item);
-      }
-      
-    console.log(products);
+if(inputName.value && inputLastName.value && inputAddress.value && inputCity.value && inputEmail.value){
+        e.preventDefault();
+        let cartTotal = localStorage.getItem('totalCost');
+        console.log(cartTotal);
     
-        let send = {
-            contact,
-            products
+        let contact = {
+            firstName : inputName.value,
+            lastName : inputLastName.value,
+            address : inputAddress.value,
+            city : inputCity.value,
+            email : inputEmail.value 
+    
         }
-        console.log(send);
-    
-   
-function sendData(){
-    fetch('http://localhost:3000/api/furniture/order',{
-        method: 'POST',
-        body : JSON.stringify(send),
-        headers : {
-            'Content-Type':'application/json'
-        }})
-        .then(response => response.json())
-        .then(response => {
-            if(response){
-                let data = response;
-                console.log(data.orderId);
-                localStorage.setItem("orderId", data.orderId);
-                window.location = "formulaire.html";
-                 
+        console.log(contact);
+        localStorage.setItem("contact", JSON.stringify(contact));
+           
+        let products =[];
+        let cartItems = JSON.parse(localStorage.getItem('productsInCart'));
+        for (const item in cartItems) { 
+            products.push(cartItems[item]._id);
+            console.log(item);
+          }
+          
+        console.log(products);
+        
+            let send = {
+                contact,
+                products
             }
-            else {
-                e.preventDefault();
-                console.error(`ERROR : ` + response.status);
-                alert('ERROR :'+ response.status);
-            }
-        })
-        .catch(err => {
-            alert("ERROR : " + err);
-        });
+            console.log(send);
+        
+       
+    function sendData(){
+        fetch('http://localhost:3000/api/furniture/order',{
+            method: 'POST',
+            body : JSON.stringify(send),
+            headers : {
+                'Content-Type':'application/json'
+            }})
+            .then(response => response.json())
+            .then(response => {
+                if(response){
+                    let data = response;
+                    console.log(data.orderId);
+                    localStorage.setItem("orderId", data.orderId);
+                    window.location = "formulaire.html";
+                     
+                }
+                else {
+                    e.preventDefault();
+                    console.error(`ERROR : ` + response.status);
+                    alert('ERROR :'+ response.status);
+                }
+            })
+            .catch(err => {
+                alert("ERROR : " + err);
+            });
+    }
 }
-sendData();    
-})
+    sendData();    
+    })
+   
         
        
 
