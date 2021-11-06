@@ -2,12 +2,12 @@
 console.log("running")
 
 //Cache
-function onLoadCartNumbers(){
+function onLoadCartNumbers() {
   let productNumbers = localStorage.getItem('cartNumbers');
-  if(productNumbers){
-      document.querySelector('.cart span').textContent = productNumbers;
+  if (productNumbers) {
+    document.querySelector('.cart span').textContent = productNumbers;
   }
-  }
+}
 onLoadCartNumbers();
 
 
@@ -19,8 +19,8 @@ getFurnitures();
 function getFurnitures() {
   fetch("http://localhost:3000/api/furniture")
     .then(function (response) {
-      return response.json();  
-      
+      return response.json();
+
     })
     .catch((err) => {
       console.log(err);
@@ -47,12 +47,12 @@ function getFurnitures() {
         let productImg = document.createElement("img");
         productCard.appendChild(productImg);
         productImg.src = apiResults[article].imageUrl;
-       
+
         let productLink = document.createElement("a");
         productCard.appendChild(productLink);
         productLink.href = `product.html?id=${apiResults[article]._id}`;
         productLink.classList.add("text-decoration-none");
-        
+
         let productInfosDiv = document.createElement("div");
         productLink.appendChild(productInfosDiv);
         productInfosDiv.classList.add("furniture__infos");

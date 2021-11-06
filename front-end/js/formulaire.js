@@ -1,7 +1,7 @@
 
 //affichage des achats
 
-function displayCart(){
+function displayCart() {
     let cartItems = localStorage.getItem("productsInCart")
     cartItems = JSON.parse(cartItems) /*Conversion en js*/
     let productContainer = document.querySelector(".products")
@@ -9,8 +9,8 @@ function displayCart(){
     let cart = localStorage.getItem("totalCost")
     cart = parseInt(cart)
 
-    
-    if(cartItems && productContainer ) {
+
+    if (cartItems && productContainer) {
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
             productContainer.innerHTML += `
@@ -38,46 +38,46 @@ function displayCart(){
 
         </div>`
     }
-    
-    else{
-       let error = document.querySelector(".products-container")
-       console.log(error);
-       error.innerHTML = `<div class="error"> 
+
+    else {
+        let error = document.querySelector(".products-container")
+        console.log(error);
+        error.innerHTML = `<div class="error"> 
                             Votre Panier est Vide <i class="far fa-sad-cry"></i>
                              </div>` ;
     }
-    
-}  
+
+}
 displayCart();
 
 //Numero de commande et infos personnelles
 
-function displayForm(){
+function displayForm() {
     let confirmationMessage = document.querySelector('.bloc-container_title');
     let confirmationNumber = document.querySelector('.bloc-container_order');
     let orderMessage = document.querySelector('.bloc-container__message');
     let cartNumbers = localStorage.getItem("cartNumbers");
-        let id = localStorage.getItem('orderId');
-        let contact = JSON.parse(localStorage.getItem('contact'));
-        let prenom = contact.firstName;
-        let nom = contact.lastName;
-        let address = contact.address;
-        let city = contact.city;
-        let mail = contact.email;
-    
-        if(cartNumbers =! 0){
-            confirmationMessage.innerHTML = `Merci <span class="bloc-container_title_name"> ${prenom} ${nom} </span> pour votre Achat`;
-            confirmationNumber.innerHTML = `Numéro de commande :</br> </br>
+    let id = localStorage.getItem('orderId');
+    let contact = JSON.parse(localStorage.getItem('contact'));
+    let prenom = contact.firstName;
+    let nom = contact.lastName;
+    let address = contact.address;
+    let city = contact.city;
+    let mail = contact.email;
+
+    if (cartNumbers = !0) {
+        confirmationMessage.innerHTML = `Merci <span class="bloc-container_title_name"> ${prenom} ${nom} </span> pour votre Achat`;
+        confirmationNumber.innerHTML = `Numéro de commande :</br> </br>
             <span class='bloc-container_order_id'> ${id} </span>`;
-            orderMessage.innerHTML = `<div class="bloc-container__message__address"> Votre commande vous sera livré au <span class="bloc-container__message__address__form">${address} ${city}</span></div>
+        orderMessage.innerHTML = `<div class="bloc-container__message__address"> Votre commande vous sera livré au <span class="bloc-container__message__address__form">${address} ${city}</span></div>
             <div class"bloc-container__message__mail"> Une confirmation vous sera envoyé à <span class='bloc-container__message__mail__form'>${mail}</span></div>`;
-            localStorage.clear();
-            
-        }
+        localStorage.clear();
+
+    }
 }
 displayForm();
 
-    
+
 
 
 
